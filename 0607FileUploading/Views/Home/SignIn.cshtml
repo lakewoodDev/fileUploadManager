@@ -1,0 +1,26 @@
+﻿@model string
+@if (Model != null)
+{
+    <div class="alert alert-danger fade in" style="margin-top:20px;">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">&times;</a>
+        <strong>Sorry!</strong> @Model
+    </div>
+}
+<div class="jumbotron" style="margin-top:40px;">
+    <form action="/home/signin" method="post">
+        <h2>Sign In</h2>
+        <label id="userlabel">Username</label>
+        <input type="email" name="username" id="username" class="form-control" placeholder="Username" required autofocus>
+        <br/>
+        <label>Password</label>
+        <input type="password" name="password" class="form-control" placeholder="Password" required>
+        <br/>
+        <button class="btn btn-lg btn-primary" type="submit">Sign in</button>
+        <br/>
+        <br/>
+    </form>
+    <a href="/home/register" class="btn btn-default">Want to Register?</a>
+</div>
+
+
+   

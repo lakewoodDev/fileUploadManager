@@ -1,0 +1,33 @@
+﻿@using Uploading.Data
+@model Image
+<div hidden id="success-alert" class="alert alert-success alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <strong>Success! Share Link</strong> <p id="message"></p>
+</div>
+<div class="jumbotron col-lg-offset-2" style="margin-top: 50px; width: 600px; text-align: center;">
+    <h3 id="imageCount" data-image-id="@Model.Id">View Count: @Model.Count</h3>
+    <div class="img row">
+        <img src="~/Images/@Model.ImageId" width="500" height="500">
+        <h2 class="desc">Added On @Model.Date</h2>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <a id="likeBtn" data-person-id="@Model.Id" class="btn btn-primary"><span class="glyphicon glyphicon-thumbs-up"></span>Like</a>
+        }
+    </div>
+</div>
+<div>
+    <h3 style="margin-left:350px;" id="shareLink">Share link & choose expiration</h3>
+    <div id="generate-div" style="margin-left: 395px;" class="col-md-offset-4">
+        <div class='input-group date col-md-3' id='datetimepicker1'>
+            <input id="date" type='text' class="form-control" placeholder="Date" name="Created"/>
+            <span class="input-group-addon">
+                <span class="glyphicon glyphicon-th"></span>
+            </span>
+        </div>
+        <button style="margin-left: 35px; margin-top: 10px;" id="generateLink" class="btn btn-success">Generate a Link</button>
+    </div>
+</div>
+@section scripts
+{
+    <script src="~/scripts/InervelCount.js"></script>
+}
